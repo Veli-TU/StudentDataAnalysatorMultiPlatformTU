@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace StudentDataAnalyserTests
 {
-    [TestClass]
+       [TestClass]
     public class CentralTendencyCalculatorTest
 
     {
@@ -18,7 +18,7 @@ namespace StudentDataAnalyserTests
             centralTendencyCalculator = new CentralTendencyCalculator();
         }
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetModeReturnsOneMode()
         {
             var input = new List<double>()
@@ -50,7 +50,7 @@ namespace StudentDataAnalyserTests
         }
 
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetModeRetunsEmptyWhenNoModePresent()
         {
             var input = new List<double>()
@@ -66,8 +66,8 @@ namespace StudentDataAnalyserTests
         public void TestGetModeThrowsExceptionOnEmptyList()
         {
             var input = new List<double>();
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMode(input));
-            Assert.AreEqual("List for calculating mode values cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMode(input));
+            Assert.AreEqual("List for calculating mode values cannot be empty", thrownException.Message);
 
         }
 
@@ -75,13 +75,13 @@ namespace StudentDataAnalyserTests
         public void TestGetModeThrowsExceptionOnNullArgumentList()
         {
             List<double>? nullCoursesViewedList = null;
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMode(nullCoursesViewedList));
-            Assert.AreEqual("List for calculating mode values cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMode(nullCoursesViewedList));
+            Assert.AreEqual("List for calculating mode values cannot be empty", thrownException.Message);
 
         }
 
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetAverage()
         {
             var input = new List<double>()
@@ -95,7 +95,7 @@ namespace StudentDataAnalyserTests
 
         }
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetAverageOnEvenInput()
         {
             var input = new List<double>()
@@ -109,12 +109,12 @@ namespace StudentDataAnalyserTests
 
         }
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetAverageThrowsExceptionOnEmptyList()
         {
             var input = new List<double>();
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetAverage(input));
-            Assert.AreEqual("List for calculating average value cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetAverage(input));
+            Assert.AreEqual("List for calculating average value cannot be empty", thrownException.Message);
 
         }
 
@@ -122,11 +122,10 @@ namespace StudentDataAnalyserTests
         public void TestGetAverageThrowsExceptionOnNullArgumentList()
         {
             List<double>? nullCoursesViewedList = null;
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetAverage(nullCoursesViewedList));
-            Assert.AreEqual("List for calculating average value cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetAverage(nullCoursesViewedList));
+            Assert.AreEqual("List for calculating average value cannot be empty", thrownException.Message);
 
         }
-
 
         [TestMethod]
         public void TestGetMedianWhenInputIsEven()
@@ -143,7 +142,7 @@ namespace StudentDataAnalyserTests
 
         }
 
-        [TestMethod]
+      [TestMethod]
         public void TestGetMedianRepeatedNumber()
         {
             var input = new List<double>()
@@ -158,7 +157,7 @@ namespace StudentDataAnalyserTests
 
         }
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetMedianWhenInputIsOdd()
         {
             var input = new List<double>()
@@ -177,17 +176,17 @@ namespace StudentDataAnalyserTests
         public void TestGetMedianThrowsExceptionOnEmptyList()
         {
             var input = new List<double>();
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMedian(input));
-            Assert.AreEqual("List for calculating median value cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMedian(input));
+            Assert.AreEqual("List for calculating median value cannot be empty", thrownException.Message);
 
         }
 
-        [TestMethod]
+       [TestMethod]
         public void TestGetMedianThrowsExceptionOnNullArgumentList()
         {
             List<double>? nullCoursesViewedList = null;
-            var e = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMedian(nullCoursesViewedList));
-            Assert.AreEqual("List for calculating median value cannot be empty", e.Message);
+            var thrownException = Assert.ThrowsException<ArgumentException>(() => centralTendencyCalculator.GetMedian(nullCoursesViewedList));
+            Assert.AreEqual("List for calculating median value cannot be empty", thrownException.Message);
 
         }
     }

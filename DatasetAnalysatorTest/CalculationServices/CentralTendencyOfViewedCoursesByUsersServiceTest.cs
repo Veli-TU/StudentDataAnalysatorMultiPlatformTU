@@ -29,8 +29,8 @@ namespace DatasetAnalysatorTest.CalculationServices
             public void TestGetResultsForMode()
             {
                 string expectedResult = "15,26,39,16,29";
-                var coursesViewedList = getMockDataForCoursesViewedList();
-                var coursesViewedForEachStudent = getMockDataForCoursesViewedForEachStudent();
+                var coursesViewedList = GetMockDataForCoursesViewedList();
+                var coursesViewedForEachStudent = GetMockDataForCoursesViewedForEachStudent();
 
                 mockCalculator.Setup(m => m.GetMode(coursesViewedList)).Returns(coursesViewedList);
                 CentralTendencyOfViewedCoursesByUsersService centralTendencyOfViewedCoursesByUsersService = new CentralTendencyOfViewedCoursesByUsersService(coursesViewedForEachStudent, mockCalculator.Object);
@@ -39,11 +39,11 @@ namespace DatasetAnalysatorTest.CalculationServices
                 Assert.AreEqual(expectedResult, result.ElementAt(0).Mode);
             }
 
-            [TestMethod]
+           [TestMethod]
             public void TestFailsOnEmptyModeList()
             {
-                var coursesViewedList = getMockDataForCoursesViewedList();
-                var coursesViewedForEachStudent = getMockDataForCoursesViewedForEachStudent();
+                var coursesViewedList = GetMockDataForCoursesViewedList();
+                var coursesViewedForEachStudent = GetMockDataForCoursesViewedForEachStudent();
                 mockCalculator.Setup(m => m.GetMode(coursesViewedList)).Returns(new List<double>());
 
                 CentralTendencyOfViewedCoursesByUsersService centralTendencyOfViewedCoursesByUsersService = new CentralTendencyOfViewedCoursesByUsersService(coursesViewedForEachStudent, mockCalculator.Object);
@@ -53,11 +53,11 @@ namespace DatasetAnalysatorTest.CalculationServices
             }
 
 
-            [TestMethod]
+                [TestMethod]
             public void TestFailsOnNullModeList()
             {
-                var coursesViewedList = getMockDataForCoursesViewedList();
-                var coursesViewedForEachStudent = getMockDataForCoursesViewedForEachStudent();
+                var coursesViewedList = GetMockDataForCoursesViewedList();
+                var coursesViewedForEachStudent = GetMockDataForCoursesViewedForEachStudent();
 
                 List<double>? nullCoursesViewedList = null;
                 mockCalculator.Setup(m => m.GetMode(coursesViewedList)).Returns(nullCoursesViewedList);
@@ -68,11 +68,11 @@ namespace DatasetAnalysatorTest.CalculationServices
                 Assert.AreEqual(e.Message, "Mode list is empty");
             }
 
-            [TestMethod]
+             [TestMethod]
             public void TestGetResultsForAverage()
             {
-                var coursesViewedList = getMockDataForCoursesViewedList();
-                var coursesViewedForEachStudent = getMockDataForCoursesViewedForEachStudent();
+                var coursesViewedList = GetMockDataForCoursesViewedList();
+                var coursesViewedForEachStudent = GetMockDataForCoursesViewedForEachStudent();
 
                 double expectedResult = 25;
                 mockCalculator.Setup(m => m.GetAverage(coursesViewedList)).Returns(expectedResult);
@@ -84,11 +84,11 @@ namespace DatasetAnalysatorTest.CalculationServices
                 Assert.AreEqual(expectedResult, result.ElementAt(0).Average);
             }
 
-            [TestMethod]
+               [TestMethod]
             public void TestGetResultsForMedian()
             {
-                var coursesViewedList = getMockDataForCoursesViewedList();
-                var coursesViewedForEachStudent = getMockDataForCoursesViewedForEachStudent();
+                var coursesViewedList = GetMockDataForCoursesViewedList();
+                var coursesViewedForEachStudent = GetMockDataForCoursesViewedForEachStudent();
 
                 double expectedResult = 26;
                 mockCalculator.Setup(m => m.GetMode(coursesViewedList)).Returns(coursesViewedList);
@@ -103,14 +103,14 @@ namespace DatasetAnalysatorTest.CalculationServices
 
 
 
-            private List<double> getMockDataForCoursesViewedList()
+            private List<double> GetMockDataForCoursesViewedList()
             {
                 return new List<double>()
                     {
                       15, 26, 39, 16, 29
                     };
             }
-            private Dictionary<double, int> getMockDataForCoursesViewedForEachStudent()
+            private Dictionary<double, int> GetMockDataForCoursesViewedForEachStudent()
             {
                 return new Dictionary<double, int>()
                 {

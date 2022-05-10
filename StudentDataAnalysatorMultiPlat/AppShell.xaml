@@ -18,7 +18,7 @@
         </Tab>
         <Tab Title="Тенденция">
             <ShellContent ContentTemplate="{DataTemplate cp:CentralTendencyView}"
-                          Title="Централна тенденция"/>
+                          Title="Централна тенденция на прегледани лекции"/>
         </Tab>
         <Tab Title="Разсейване">
             <ShellContent ContentTemplate="{DataTemplate cp:StatisticalDispersionView}"
